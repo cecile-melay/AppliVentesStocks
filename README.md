@@ -1,0 +1,2 @@
+# AppliVentesStocks
+Conception class
