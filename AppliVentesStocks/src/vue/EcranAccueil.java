@@ -128,6 +128,7 @@ public class EcranAccueil extends JFrame implements ActionListener {
 		// Position
 		gbc.gridx = 2;
 		gbc.gridy = 3;
+		
 
 		// Ajout au panel principal
 		panel.add(motDePasse, gbc);
