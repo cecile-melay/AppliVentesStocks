@@ -1,24 +1,27 @@
 package controlleur;
 
-import vue.EcranAccueil;
+import vue.VueJetable;
 
 /**
  * Controlleur
  */
 public class Session {
-
+	private VueJetable vueJetable;
+	
 	/**
 	 * Constructeur du controlleur
 	 */
 	public Session() {
-		new EcranAccueil(this).setVisible(true);
+		this.vueJetable = new VueJetable(this);
+		this.vueJetable.setVisible(true);
 	}
 
 	/**
 	 * Action quand une personne clique sur le bouton "S'identifier"
 	 */
-	public void actionBoutonIdentifier() {
+	public EnumTypeEcran traiterConnexion() {
 		System.out.println("Not implemented");
+		return EnumTypeEcran.ECRAN_ACCUEIL;
 	}
 
 	public static void main(String[] args) {

@@ -21,7 +21,7 @@ import controlleur.Session;
  * Ecran d'accueil
  */
 @SuppressWarnings("serial")
-public class EcranAccueil extends JFrame implements ActionListener {
+public class VueJetable extends JFrame implements ActionListener {
 
 	/** Controlleur */
 	private Session session;
@@ -37,7 +37,7 @@ public class EcranAccueil extends JFrame implements ActionListener {
 	 * 
 	 * @param session
 	 */
-	public EcranAccueil(Session session) {
+	public VueJetable(Session session) {
 		super("AppliVentesStocks");
 
 		// session
@@ -164,6 +164,6 @@ public class EcranAccueil extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// Action sur le bouton "S'identifier"
-		session.actionBoutonIdentifier();
+		session.traiterConnexion();
 	}
 }
