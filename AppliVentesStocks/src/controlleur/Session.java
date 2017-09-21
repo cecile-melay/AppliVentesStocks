@@ -5,12 +5,12 @@ import vue.EcranAccueil;
 /**
  * Controlleur
  */
-public class Controlleur {
+public class Session {
 
 	/**
 	 * Constructeur du controlleur
 	 */
-	public Controlleur() {
+	public Session() {
 		new EcranAccueil(this).setVisible(true);
 	}
 
@@ -22,6 +22,6 @@ public class Controlleur {
 	}
 
 	public static void main(String[] args) {
-		new Controlleur();
+		new Session();
 	}
 }

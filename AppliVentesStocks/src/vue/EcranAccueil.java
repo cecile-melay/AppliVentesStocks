@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import controlleur.Controlleur;
+import controlleur.Session;
 
 /**
  * Ecran d'accueil
@@ -24,7 +24,7 @@ import controlleur.Controlleur;
 public class EcranAccueil extends JFrame implements ActionListener {
 
 	/** Controlleur */
-	private Controlleur controlleur;
+	private Session session;
 
 	/** Panel principal */
 	private JPanel panel;
@@ -35,13 +35,13 @@ public class EcranAccueil extends JFrame implements ActionListener {
 	/**
 	 * Constructeur de l'écran d'accueil
 	 * 
-	 * @param controlleur
+	 * @param session
 	 */
-	public EcranAccueil(Controlleur controlleur) {
+	public EcranAccueil(Session session) {
 		super("AppliVentesStocks");
 
-		// Controlleur
-		this.controlleur = controlleur;
+		// session
+		this.session = session;
 
 		setSize(800, 450);
 		setLocationRelativeTo(null);
@@ -164,6 +164,6 @@ public class EcranAccueil extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// Action sur le bouton "S'identifier"
-		controlleur.actionBoutonIdentifier();
+		session.actionBoutonIdentifier();
 	}
 }
