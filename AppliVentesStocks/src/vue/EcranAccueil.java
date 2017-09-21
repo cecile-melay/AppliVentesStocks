@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import controlleur.Controlleur;
@@ -132,7 +133,7 @@ public class EcranAccueil extends JFrame implements ActionListener {
 		panel.add(motDePasse, gbc);
 
 		// 2 - Zone pour remplir :
-		JTextField zoneMDP = new JTextField();
+		JPasswordField zoneMDP = new JPasswordField();
 		gbc.gridx = 3;
 
 		// Ajout au panel principal
