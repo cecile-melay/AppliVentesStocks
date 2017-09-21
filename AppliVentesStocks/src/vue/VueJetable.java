@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import controlleur.EnumTypeEcran;
 import controlleur.Session;
 
 /**
@@ -22,7 +23,8 @@ import controlleur.Session;
  */
 @SuppressWarnings("serial")
 public class VueJetable extends JFrame implements ActionListener {
-
+	
+	
 	/** Controlleur */
 	private Session session;
 
@@ -37,11 +39,13 @@ public class VueJetable extends JFrame implements ActionListener {
 	 * 
 	 * @param session
 	 */
-	public VueJetable(Session session) {
+	public VueJetable() {
 		super("AppliVentesStocks");
 
 		// session
-		this.session = session;
+		this.session = new Session();
+		
+		EnumTypeEcran e = session.traiterConnexion();
 
 		setSize(800, 450);
 		setLocationRelativeTo(null);
@@ -166,4 +170,9 @@ public class VueJetable extends JFrame implements ActionListener {
 		// Action sur le bouton "S'identifier"
 		session.traiterConnexion();
 	}
+	
+	public static void main(String[] args) {
+		new VueJetable();
+	}
+	
 }

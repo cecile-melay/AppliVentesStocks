@@ -12,7 +12,7 @@ public class Session {
 	 * Constructeur du controlleur
 	 */
 	public Session() {
-		this.vueJetable = new VueJetable(this);
+		this.vueJetable = new VueJetable();
 		this.vueJetable.setVisible(true);
 	}
 
@@ -24,7 +24,5 @@ public class Session {
 		return EnumTypeEcran.ECRAN_ACCUEIL;
 	}
 
-	public static void main(String[] args) {
-		new Session();
-	}
+
 }
