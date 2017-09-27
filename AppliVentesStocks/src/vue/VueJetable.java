@@ -5,8 +5,6 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,9 +20,8 @@ import controlleur.Session;
  * Ecran d'accueil
  */
 @SuppressWarnings("serial")
-public class VueJetable extends JFrame implements ActionListener {
-	
-	
+public class VueJetable extends JFrame {
+
 	/** Controlleur */
 	private Session session;
 
@@ -42,32 +39,43 @@ public class VueJetable extends JFrame implements ActionListener {
 	public VueJetable() {
 		super("AppliVentesStocks");
 
-		// session
-		this.session = new Session();
-		
-		EnumTypeEcran e = session.traiterConnexion();
+		// Controlleur
+		session = new Session();
 
-		setSize(800, 450);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// Traiter connexion
+		EnumTypeEcran typeEcran = session.traiterConnexion();
 
-		// Panel principal
-		panel = new JPanel();
-		panel.setLayout(new GridBagLayout());
-		setContentPane(panel);
+		// Affichage en fonction du retour de traiterConnexion :
+		if (typeEcran == EnumTypeEcran.ECRAN_ACCUEIL) {
+			setSize(800, 450);
+			setLocationRelativeTo(null);
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		gbc = new GridBagConstraints();
-		gbc.fill = GridBagConstraints.BOTH;
+			// Panel principal
+			panel = new JPanel();
+			panel.setLayout(new GridBagLayout());
+			setContentPane(panel);
 
-		// - Initialisation des composants de la fenetre :
-		
-		initZoneTexte();
+			gbc = new GridBagConstraints();
+			gbc.fill = GridBagConstraints.BOTH;
 
-		initZonePseudo();
+			// - Initialisation des composants de la fenetre :
 
-		initZoneMDP();
+			initZoneTexte();
 
-		initZoneBouton();
+			initZonePseudo();
+
+			initZoneMDP();
+
+			initZoneBouton();
+
+			setVisible(true);
+		}
+
+	}
+
+	public static void main(String[] args) {
+		new VueJetable();
 	}
 
 	/**
@@ -132,7 +140,6 @@ public class VueJetable extends JFrame implements ActionListener {
 		// Position
 		gbc.gridx = 2;
 		gbc.gridy = 3;
-		
 
 		// Ajout au panel principal
 		panel.add(motDePasse, gbc);
@@ -149,10 +156,9 @@ public class VueJetable extends JFrame implements ActionListener {
 	 * InitZoneBouton
 	 */
 	private void initZoneBouton() {
-		
+
 		// 1 - Bouton :
 		JButton bouton = new JButton("S'identifier");
-		bouton.addActionListener(this);
 
 		// Position
 		gbc.gridx = 3;
@@ -162,17 +168,4 @@ public class VueJetable extends JFrame implements ActionListener {
 		panel.add(bouton, gbc);
 	}
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 */
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// Action sur le bouton "S'identifier"
-		session.traiterConnexion();
-	}
-	
-	public static void main(String[] args) {
-		new VueJetable();
-	}
-	
 }
